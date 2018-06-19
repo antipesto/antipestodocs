@@ -12,9 +12,4 @@ Welcome to Antipesto Docs
 
    includeme
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+``.. sidebar:: Title``; like a mini parallel document
