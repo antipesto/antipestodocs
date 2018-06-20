@@ -37,16 +37,11 @@
             
   <div class="section" id="wireless-tranceivers">
 <h1>Wireless Tranceivers<a class="headerlink" href="#wireless-tranceivers" title="Permalink to this headline">¶</a></h1>
-<p>Just a brief discussion about wireless sensors, strengths and weaknesses.</p>
-<div class="section" id="project-objective">
-<h2>Project Objective<a class="headerlink" href="#project-objective" title="Permalink to this headline">¶</a></h2>
-<p>I wanted to build a wireless sensor node that could be completely self contained in a small weatherproof box including a battery and all the electronics. A box with holes in it to accept wires risks allowing water to get in. Wires and cables outside the box might also get chewed on by animals or interfere with the trap mechanism.
-I want to get information from the sensor to confirm that it is alive and well and also to immediately signal when something gets caught in the trap.</p>
-</div>
+<p>Just a bit of discussion about wireless radios and sensors, strengths and weaknesses.</p>
 <div class="section" id="wifi">
 <h2>Wifi<a class="headerlink" href="#wifi" title="Permalink to this headline">¶</a></h2>
 <p>Wifi is fairly ubiquitous and generally a household will have some coverage in their outdoor area where a trap box might be located.</p>
-<p>The disadvantage of WiFi is that it needs quite a bit of power when it is running; this means I need either a bigger battery or a way to keep the battery topped up. The ESP8266 chip (or NodeMCU module) are inexpensive (you can get them for less than NZD $5) and they have a lot of potential. I do make use of one in the sensor gateway but there are some fiddly things besides power consumption I need to overcome. For example:</p>
+<p>The disadvantage of WiFi is that it needs quite a bit of power when it is running; this means I need either a bigger battery or a way to keep the battery topped up (maybe a solar panel). The ESP8266 chip (or NodeMCU module) are inexpensive (you can get them for less than NZD $5) and they have a lot of potential. I do make use of one in the sensor gateway but there are some fiddly things besides power consumption I need to overcome. For example:</p>
 <ul class="simple">
 <li><strong>Monitoring Battery Voltage</strong> - You need to build some circuitry (a voltage divider) to allow the battery voltage to be measured via the single analogue pin on the ESP8266</li>
 <li><strong>Wake up on Interupt</strong> - To make sure that the battery lasts as long as possible, the node needs to be put to sleep. You can program it to wake up at intervals to “check in” with the gateway and perhaps send a battery voltage measurement but its also really useful if you can get the device to wake up immediately in the event that the pest trap is sprung. Its not insurmountable but interupt handling on the ESP8266 while its asleep seems to need external circuitry to send a signal to the wake up pin when the state of the sensor changes.</li>
@@ -90,7 +85,6 @@ I want to get information from the sensor to confirm that it is alive and well a
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Wireless Tranceivers</a><ul>
-<li><a class="reference internal" href="#project-objective">Project Objective</a></li>
 <li><a class="reference internal" href="#wifi">Wifi</a></li>
 <li><a class="reference internal" href="#nrf24l01">NRF24L01+</a></li>
 <li><a class="reference internal" href="#rfm69">RFM69</a></li>
