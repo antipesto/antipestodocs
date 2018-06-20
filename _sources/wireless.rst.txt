@@ -7,7 +7,12 @@ Just a bit of discussion about wireless radios and sensors, strengths and weakne
 Wifi
 ----
 
-Wifi is fairly ubiquitous and generally a household will have some coverage in their outdoor area where a trap box might be located.
+.. image:: ./_images/nodemcu.jpg
+    :height: 100px
+    :align: left
+    :alt: NodeMCU image.
+
+Wifi is fairly ubiquitous and it is reasonable to assume a household will have some wifi coverage in their outdoor area where a trap box might be located.
 
 The disadvantage of WiFi is that it needs quite a bit of power when it is running; this means I need either a bigger battery or a way to keep the battery topped up (maybe a solar panel). The ESP8266 chip (or NodeMCU module) are inexpensive (you can get them for less than NZD $5) and they have a lot of potential. I do make use of one in the sensor gateway but there are some fiddly things besides power consumption I need to overcome. For example:
 
@@ -18,6 +23,11 @@ It's still something I would like to explore more but for the moment I am not us
 
 NRF24L01+
 ---------
+
+.. image:: ./_images/nrf24l01.jpg
+    :height: 100px
+    :align: left
+    :alt: NRF24L01 image.
 
 These are the wireless transceivers that are used extensively on the `MySensors <http://mysensors.org>`_ framework. They are really really cheap, if you are prepared to wait a little while for them to be delivered you can get a bunch of them. Less than NZD $10 can get you 10 of them.  
 
@@ -38,6 +48,11 @@ The benefits are:
 RFM69
 -----
 
+.. image:: ./_images/rfm69.jpg
+    :height: 100px
+    :align: left
+    :alt: rfm69 image.
+
 This is an alternative to the NRF24L01+ modules which is supported on the MySensors framework. I have not had a chance to play with these. They are somewhat more expensive than the NRF24l01+ and need a little coil antenna soldered to them. There is a suggestion that the radio has a slightly better range than the NRF24L01+ which given my experience could be good to explore. 
 
 The module looks a little larger than the NRF24L01+ but still pretty small. I don't yet know what the battery life will be like using these, the slightly higher radio range might be because it uses a bit more power.
@@ -46,5 +61,10 @@ Another nice feature of these which is absent on the NRF24L01+ is the module has
 
 LoRa
 ----
+
+.. image:: ./_images/lora-logo.jpg
+    :height: 100px
+    :align: left
+    :alt: LoRa Logo.
 
 `LoRa <https://en.wikipedia.org/wiki/LoRa>`_ appears to be used by commercially available trap sensors and other commercial IoT devices. There are some modules available for you to build your own projects with these radios but looked a little expensive. There is some promise that this type of radio will have really good range and performance. I will keep an eye out for inexpensive LoRa modules and hope to give them a try one day.

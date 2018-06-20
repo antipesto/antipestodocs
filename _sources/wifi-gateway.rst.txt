@@ -1,0 +1,16 @@
+Wifi Gateway
+============
+
+The wifi gateway provides the following:
+
+* Acts as a bridge between the wireless sensors and the network.
+
+I built mine exactly the same as the example on the MySensors website. On my prototype I also opted for one of the advanced build options with LED indicators so I could see when the gateway is communicating with a sensor node. Plus LED's make beige enclosure boxes look a bit more interesting.
+
+I used a NodeMCU with an NRF24L01+PA+LNA Antenna version radio module.
+
+Instructions for how to connect the radio module to a NodeMCU can be found here `connect_radio <https://www.mysensors.org/build/connect_radio>`_
+
+Further build instructions for the gateway can be found here `esp8266_gateway <https://www.mysensors.org/build/esp8266_gateway>`_
+
+For my build I am using an MQTT broker so the code I used is based on the `ESP8266MQTTClient example: <https://github.com/mysensors/MySensors/blob/master/examples/GatewayESP8266MQTTClient/GatewayESP8266MQTTClient.ino>`_

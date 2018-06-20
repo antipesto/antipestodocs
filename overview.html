@@ -13,10 +13,11 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Wireless Tranceivers" href="wireless.html" />
-    <link rel="prev" title="Introduction" href="includeme.html" /> 
+    <link rel="prev" title="AntiPesto" href="includeme.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,7 +29,7 @@
           <a href="wireless.html" title="Wireless Tranceivers"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="includeme.html" title="Introduction"
+          <a href="includeme.html" title="AntiPesto"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Antipesto Docs  documentation</a> &#187;</li> 
       </ul>
@@ -45,9 +46,9 @@
 <h2>Project Objective<a class="headerlink" href="#project-objective" title="Permalink to this headline">¶</a></h2>
 <p>I wanted to build a wireless sensor node that could be completely self contained in a small weatherproof box including a battery and all the electronics. A box with holes in it to accept wires risks allowing water to get in. Wires and cables outside the box might also get chewed on by animals or interfere with the trap mechanism.
 I want to get information from the sensor to confirm that it is alive and well and also to immediately signal when something gets caught in the trap.</p>
-<p>The complete solution is based on the framework provided by <a class="reference external" href="http://mysensors.org">MySensors.org</a> which is an Arduino library with support for NRF24L01+ wireless transceivers. Because the library takes care of all the complicated set up needed to get the radios up and running, you can focus on assembling your sensors and making use of the data.</p>
+<p>The complete solution is based on the framework provided by <a class="reference external" href="http://mysensors.org">MySensors</a> which is an Arduino library with support for NRF24L01+ wireless transceivers. Because the library takes care of all the complicated set up needed to get the radios up and running, you can focus on assembling your sensors and making use of the data.</p>
 <p>My project has several components that produce the complete solution. There is core infrastructure that needs to be in place such as a Gateway and <a class="reference external" href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> service, some of these you may already have if you have been building other sensor projects. From there you can add as many trap sensor nodes as you need <a class="footnote-reference" href="#f1" id="id1">[1]</a>.</p>
-<p>Optional components are <a class="reference external" href="https://nodered.org/">Node-Red</a> which will let you integrate your trap sensors with external services such as <a class="reference external" href="http://api.trap.nz">Trap NZ</a> . I used <a class="reference external" href="http://mycontroller.org">MyController</a> as a local GUI interface to see what my sensors were up to. You could conceivably use something else like <a class="reference external" href="http://www.domoticz.com/">Domoticz</a> as long as it can subscribe to messages that the sensor publishes to MQTT.</p>
+<p>Optional components are <a class="reference external" href="https://nodered.org/">NodeRed</a> which will let you integrate your trap sensors with external services such as <a class="reference external" href="http://api.trap.nz">‘Trap NZ’</a> . I used <a class="reference external" href="http://mycontroller.org">MyController</a> as a local GUI interface to see what my sensors were up to. You could conceivably use something else like <a class="reference external" href="http://www.domoticz.com/">Domoticz</a> as long as it can subscribe to messages that the sensor publishes to MQTT.</p>
 </div>
 <div class="section" id="core-infrastructure">
 <h2>Core Infrastructure<a class="headerlink" href="#core-infrastructure" title="Permalink to this headline">¶</a></h2>
@@ -59,7 +60,7 @@ I want to get information from the sensor to confirm that it is alive and well a
 </ul>
 </li>
 <li>MQTT service to act as a communications bus.<ul>
-<li>I used Mosquitto running on a Raspberry Pi, but you could always use one you might already have running for other projects or even try a publicly accessible online MQTT service.</li>
+<li>I used Mosquitto running on a Raspberry Pi, but you could always use one you might already have running for other projects or even try a publicly accessible online MQTT service. The Raspberry Pi is just what I used to run the MQTT service and MyController (see below) but any computer that can run these packages is OK.</li>
 </ul>
 </li>
 </ul>
@@ -118,7 +119,7 @@ I want to get information from the sensor to confirm that it is alive and well a
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="includeme.html"
-                        title="previous chapter">Introduction</a></p>
+                        title="previous chapter">AntiPesto</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="wireless.html"
                         title="next chapter">Wireless Tranceivers</a></p>
@@ -155,7 +156,7 @@ I want to get information from the sensor to confirm that it is alive and well a
           <a href="wireless.html" title="Wireless Tranceivers"
              >next</a> |</li>
         <li class="right" >
-          <a href="includeme.html" title="Introduction"
+          <a href="includeme.html" title="AntiPesto"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Antipesto Docs  documentation</a> &#187;</li> 
       </ul>
