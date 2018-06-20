@@ -15,6 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Wireless Tranceivers" href="wireless.html" />
     <link rel="prev" title="Introduction" href="includeme.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -23,6 +24,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="wireless.html" title="Wireless Tranceivers"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="includeme.html" title="Introduction"
              accesskey="P">previous</a> |</li>
@@ -37,7 +41,7 @@
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>The complete solution is based on the framework provided by <a class="reference external" href="http://mysensors.org">MySensors.org</a> which is an Arduino library with support for NRF24L01+ wireless transceivers. Because they take care of all the complicated set up needed to get the wireless side up and running, you can focus on assembling your sensors and making use of the data.</p>
+<p>The complete solution is based on the framework provided by <a class="reference external" href="http://mysensors.org">MySensors.org</a> which is an Arduino library with support for NRF24L01+ wireless transceivers. Because the library takes care of all the complicated set up needed to get the radios up and running, you can focus on assembling your sensors and making use of the data.</p>
 <p>The project has several components that produce the complete solution. There is core infrastructure that needs to be in place such as a Gateway and <a class="reference external" href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> service, some of these you may already have if you have been building other sensor projects. From there you can add as many trap sensor nodes as you need.</p>
 <p>Optional components are <a class="reference external" href="https://nodered.org/">Node-Red</a> which will let you integrate your trap sensors with external services such as <a class="reference external" href="http://api.trap.nz">Trap NZ</a> . I used <a class="reference external" href="http://mycontroller.org">MyController</a> as a local GUI interface to see what my sensors were up to. You could conceivably use something else like <a class="reference external" href="http://www.domoticz.com/">Domoticz</a> as long as it can subscribe to messages that the sensor publishes to MQTT.</p>
 <div class="section" id="core-infrastructure">
@@ -102,6 +106,9 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="includeme.html"
                         title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="wireless.html"
+                        title="next chapter">Wireless Tranceivers</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -131,6 +138,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="wireless.html" title="Wireless Tranceivers"
+             >next</a> |</li>
         <li class="right" >
           <a href="includeme.html" title="Introduction"
              >previous</a> |</li>

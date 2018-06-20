@@ -1,8 +1,7 @@
 Overview
 ========
 
-The complete solution is based on the framework provided by `MySensors.org <http://mysensors.org>`_ which is an Arduino library with support for NRF24L01+ wireless transceivers. Because they take care of all the complicated set up needed to get the wireless side up and running, you can focus on assembling your sensors and making use of the data.
-
+The complete solution is based on the framework provided by `MySensors.org <http://mysensors.org>`_ which is an Arduino library with support for NRF24L01+ wireless transceivers. Because the library takes care of all the complicated set up needed to get the radios up and running, you can focus on assembling your sensors and making use of the data.
 
 The project has several components that produce the complete solution. There is core infrastructure that needs to be in place such as a Gateway and `MQTT <https://en.wikipedia.org/wiki/MQTT>`_ service, some of these you may already have if you have been building other sensor projects. From there you can add as many trap sensor nodes as you need.
 
