@@ -1,0 +1,145 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Overview &#8212; Antipesto Docs  documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Introduction" href="includeme.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="includeme.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Antipesto Docs  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>The complete solution is based on the framework provided by <a class="reference external" href="http://mysensors.org">MySensors.org</a> which is an Arduino library with support for NRF24L01+ wireless transceivers. Because they take care of all the complicated set up needed to get the wireless side up and running, you can focus on assembling your sensors and making use of the data.</p>
+<p>The project has several components that produce the complete solution. There is core infrastructure that needs to be in place such as a Gateway and <a class="reference external" href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> service, some of these you may already have if you have been building other sensor projects. From there you can add as many trap sensor nodes as you need.</p>
+<p>Optional components are <a class="reference external" href="https://nodered.org/">Node-Red</a> which will let you integrate your trap sensors with external services such as <a class="reference external" href="http://api.trap.nz">Trap NZ</a> . I used <a class="reference external" href="http://mycontroller.org">MyController</a> as a local GUI interface to see what my sensors were up to. You could conceivably use something else like <a class="reference external" href="http://www.domoticz.com/">Domoticz</a> as long as it can subscribe to messages that the sensor publishes to MQTT.</p>
+<div class="section" id="core-infrastructure">
+<h2>Core Infrastructure<a class="headerlink" href="#core-infrastructure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>MySensors wifi gateway to bridge from the NRF24L01+ wireless sensor node network to Ethernet<ul>
+<li>Low power “always on” power supply.</li>
+<li>ESP8266 / NodeMCU</li>
+<li>NRF24L01+ / RFM69 transceiver</li>
+</ul>
+</li>
+<li>MQTT service to act as a communications bus.<ul>
+<li>I used Mosquitto running on a Raspberry Pi, but you could always use one you might already have running for other projects or even try a publicly accessible online MQTT service.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="wireless-sensor-nodes">
+<h2>Wireless Sensor Nodes<a class="headerlink" href="#wireless-sensor-nodes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Battery powered wireless Sensor Node<ul>
+<li>3.7v Li-Ion battery to supply power to;</li>
+<li>Arduino Nano type MCU</li>
+<li>Magnetic reed switch or some kind of switch contraption that can be somehow actuated by a mechanical pest trap.</li>
+<li>NRF24L01+ / RFM69 wireless transceiver.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="optional-bits">
+<h2>Optional bits<a class="headerlink" href="#optional-bits" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">MyController or Domoticz for local monitoring.</p>
+<blockquote>
+<div><ul class="simple">
+<li>This does nothing but give you a view of the sensor nodes by subscribing to messages on the MQTT bus. You might want to send yourself alerts when a trap is sprung and you could use these to trigger alerts via push notification or email. (Keep in mind some target pests are more active at night!)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Node-Red to bridge from the MQTT bus to other external services such as <a class="reference external" href="http://trap.nz">http://trap.nz</a></p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#core-infrastructure">Core Infrastructure</a></li>
+<li><a class="reference internal" href="#wireless-sensor-nodes">Wireless Sensor Nodes</a></li>
+<li><a class="reference internal" href="#optional-bits">Optional bits</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="includeme.html"
+                        title="previous chapter">Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/overview.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="includeme.html" title="Introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Antipesto Docs  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright This work is licensed under a Creative Commons NonCommercial ShareAlike 4.0 International License http://creativecommons.org/licenses/by-nc-sa/4.0/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>
