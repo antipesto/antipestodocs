@@ -16,6 +16,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MQTT Broker" href="MQTT-Broker.html" />
     <link rel="prev" title="Wireless Tranceivers" href="wireless.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -24,6 +25,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="MQTT-Broker.html" title="MQTT Broker"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="wireless.html" title="Wireless Tranceivers"
              accesskey="P">previous</a> |</li>
@@ -38,15 +42,40 @@
             
   <div class="section" id="wifi-gateway">
 <h1>Wifi Gateway<a class="headerlink" href="#wifi-gateway" title="Permalink to this headline">¶</a></h1>
-<p>The wifi gateway provides the following:</p>
+<p>The wifi gateway has a radio for wifi and is directly wired to another radio the same as the wireless sensors and provides the following:</p>
 <ul class="simple">
-<li>Acts as a bridge between the wireless sensors and the network.</li>
+<li>Acts as a bridge between the wireless sensors and your wifi network.</li>
 </ul>
 <p>I built mine exactly the same as the example on the MySensors website. On my prototype I also opted for one of the advanced build options with LED indicators so I could see when the gateway is communicating with a sensor node. Plus LED’s make beige enclosure boxes look a bit more interesting.</p>
 <p>I used a NodeMCU with an NRF24L01+PA+LNA Antenna version radio module.</p>
+<div class="section" id="building-instructions">
+<h2>Building instructions<a class="headerlink" href="#building-instructions" title="Permalink to this headline">¶</a></h2>
 <p>Instructions for how to connect the radio module to a NodeMCU can be found here <a class="reference external" href="https://www.mysensors.org/build/connect_radio">connect_radio</a></p>
 <p>Further build instructions for the gateway can be found here <a class="reference external" href="https://www.mysensors.org/build/esp8266_gateway">esp8266_gateway</a></p>
+</div>
+<div class="section" id="coding-the-gateway-firmware">
+<h2>Coding the gateway firmware<a class="headerlink" href="#coding-the-gateway-firmware" title="Permalink to this headline">¶</a></h2>
 <p>For my build I am using an MQTT broker so the code I used is based on the <a class="reference external" href="https://github.com/mysensors/MySensors/blob/master/examples/GatewayESP8266MQTTClient/GatewayESP8266MQTTClient.ino">ESP8266MQTTClient example:</a></p>
+</div>
+<div class="section" id="customise-the-firmware">
+<h2>Customise the firmware<a class="headerlink" href="#customise-the-firmware" title="Permalink to this headline">¶</a></h2>
+<p>There is some configuration to change in the firmware for the wifi gateway to get it to join your wifi network, connect to your MQTT broker and set some other MQTT parameters up.</p>
+<div class="section" id="ssid-and-password">
+<h3>SSID and Password<a class="headerlink" href="#ssid-and-password" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="mqtt-broker-ip-address">
+<h3>MQTT Broker IP address<a class="headerlink" href="#mqtt-broker-ip-address" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="mqtt-client-name">
+<h3>MQTT Client Name<a class="headerlink" href="#mqtt-client-name" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="mqtt-publish-topic">
+<h3>MQTT Publish Topic<a class="headerlink" href="#mqtt-publish-topic" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="mqtt-subscribe-topic">
+<h3>MQTT Subscribe Topic<a class="headerlink" href="#mqtt-subscribe-topic" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 </div>
 
 
@@ -55,9 +84,29 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Wifi Gateway</a><ul>
+<li><a class="reference internal" href="#building-instructions">Building instructions</a></li>
+<li><a class="reference internal" href="#coding-the-gateway-firmware">Coding the gateway firmware</a></li>
+<li><a class="reference internal" href="#customise-the-firmware">Customise the firmware</a><ul>
+<li><a class="reference internal" href="#ssid-and-password">SSID and Password</a></li>
+<li><a class="reference internal" href="#mqtt-broker-ip-address">MQTT Broker IP address</a></li>
+<li><a class="reference internal" href="#mqtt-client-name">MQTT Client Name</a></li>
+<li><a class="reference internal" href="#mqtt-publish-topic">MQTT Publish Topic</a></li>
+<li><a class="reference internal" href="#mqtt-subscribe-topic">MQTT Subscribe Topic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="wireless.html"
                         title="previous chapter">Wireless Tranceivers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="MQTT-Broker.html"
+                        title="next chapter">MQTT Broker</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -87,6 +136,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="MQTT-Broker.html" title="MQTT Broker"
+             >next</a> |</li>
         <li class="right" >
           <a href="wireless.html" title="Wireless Tranceivers"
              >previous</a> |</li>
