@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Antipesto Docs'
-copyright = '2018, David Alderman'
+copyright = 'This work is licensed under a Creative Commons NonCommercial ShareAlike 4.0 International License http://creativecommons.org/licenses/by-nc-sa/4.0/'
 author = 'David Alderman'
 
 # The short X.Y version
@@ -84,6 +84,8 @@ html_theme = 'nature'
 # documentation.
 #
 # html_theme_options = {}
+
+html_favicon = '_images/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
