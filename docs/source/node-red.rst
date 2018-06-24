@@ -1,3 +1,5 @@
+.. _Node Red:
+
 Node-Red
 ========
 
