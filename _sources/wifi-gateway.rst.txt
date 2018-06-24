@@ -1,3 +1,5 @@
+.. _Wifi Gateway:
+
 Wifi Gateway
 ============
 

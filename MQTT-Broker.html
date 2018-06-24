@@ -41,8 +41,75 @@
           <div class="body" role="main">
             
   <div class="section" id="mqtt-broker">
-<h1>MQTT Broker<a class="headerlink" href="#mqtt-broker" title="Permalink to this headline">¶</a></h1>
-<p>Yeah, I haven’t written this bit yet.</p>
+<span id="id1"></span><h1>MQTT Broker<a class="headerlink" href="#mqtt-broker" title="Permalink to this headline">¶</a></h1>
+<p>Use of a Raspberry Pi is not mandatory for this project, if you have one then this is a use for it. If you already have another server that can run Linux then you could use that instead. Alternatively there are public brokers you could use; take a look at <a class="reference external" href="https://test.mosquitto.org/">https://test.mosquitto.org/</a></p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>You will need to have the MQTT Broker up and running before you can run <a class="reference internal" href="myController.html#mycontroller"><span class="std std-ref">MyController.org</span></a> or <a class="reference internal" href="node-red.html#node-red"><span class="std std-ref">Node-Red</span></a></p>
+</div>
+<div class="section" id="set-up-mqtt-on-raspberry-pi">
+<h2>Set up MQTT on Raspberry Pi<a class="headerlink" href="#set-up-mqtt-on-raspberry-pi" title="Permalink to this headline">¶</a></h2>
+<p>Starting from a clean install on an SD card installed in a Raspberry Pi, get your Pi up and running and attached to the network so you can ssh into it. Look for guides on doing a “Headless install” of Raspberry Pi where you can enable the wifi and configure the Pi to accept ssh connections witout needing to connect a screen.</p>
+<div class="section" id="initial-configuration">
+<h3>Initial Configuration<a class="headerlink" href="#initial-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Log in with the default credentials and change the password to secure things a little bit, also change the default hostname from rasberrypi to something else and configure it with a fixed IP address:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">pi</span><span class="nd">@raspberrypi</span>
+</pre></div>
+</div>
+<p>Change the password:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">passwd</span>
+</pre></div>
+</div>
+<p>Install some updates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+<p>Change the hostname to something else:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hostname</span>
+</pre></div>
+</div>
+<p>Edit rasberrypi to somthing more interesting and then close the editor with ctrl+x y</p>
+<p>Next edit the hosts file to specify the new hostname in there too:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
+</pre></div>
+</div>
+<p>change raspberrypi to hostname</p>
+<p>Its not a bad idea to give the Pi a fixed IP address as it is going to be a server, its good to make sure it will always be where you expect it to be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">dhcpcd</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<p>Below are some example IP addresses, you will need to alter this according to your own network:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment the interface that you are going to give the fixed IP address.</span>
+
+<span class="c1"># eth0 is the wired connection uncomment the line below if you are going to use a wired connection</span>
+<span class="c1">#interface eth0</span>
+
+<span class="c1">#wlan0 is the wireless connection uncomment the line below if you want to use the wireless connection</span>
+<span class="c1">#interface wlan0</span>
+
+<span class="n">static</span> <span class="n">ip_address</span><span class="o">=</span><span class="mf">10.1</span><span class="o">.</span><span class="mf">1.7</span><span class="o">/</span><span class="mi">24</span>
+<span class="n">static</span> <span class="n">routers</span><span class="o">=</span><span class="mf">10.1</span><span class="o">.</span><span class="mf">1.1</span>
+<span class="n">static</span> <span class="n">domain_name_servers</span><span class="o">=</span><span class="mf">10.1</span><span class="o">.</span><span class="mf">1.1</span>
+</pre></div>
+</div>
+<p>Exit nano with ctrl+x y and we are done with the initial configuration so then reboot the Pi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="install-mosquitto">
+<h2>Install Mosquitto<a class="headerlink" href="#install-mosquitto" title="Permalink to this headline">¶</a></h2>
+<p>Once the initial configuration steps above have been done, after a few moments you should be able to log back into the Pi again, and then install Mosquitto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">mosquitto</span> <span class="n">mosquitto</span><span class="o">-</span><span class="n">clients</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://diyprojects.io/mqtt-mosquitto-communicating-connected-objects-iot/#.Wy4V7xyxVuQ">https://diyprojects.io/mqtt-mosquitto-communicating-connected-objects-iot/#.Wy4V7xyxVuQ</a></p>
+</div>
 </div>
 
 
@@ -51,6 +118,20 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MQTT Broker</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#set-up-mqtt-on-raspberry-pi">Set up MQTT on Raspberry Pi</a><ul>
+<li><a class="reference internal" href="#initial-configuration">Initial Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-mosquitto">Install Mosquitto</a></li>
+<li><a class="reference internal" href="#more-information">More Information</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="wifi-gateway.html"
                         title="previous chapter">Wifi Gateway</a></p>
